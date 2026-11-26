@@ -55,14 +55,13 @@ export const schemaCreateCourse = z.object({
 
 export const useFormCreateCourse = () =>
   useForm<FormTypeCreateCourse>({
-    //@ts-expect-error
+  
     resolver: zodResolver(schemaCreateCourse),
   })
 
 /**
  * Context
- */
-//@ts-expect-error 
+ */ 
 export const FormProviderCreateCourseNaloziEdit = ({children, nalog},
 
 ) => {

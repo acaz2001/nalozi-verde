@@ -76,7 +76,7 @@ const schemaCreateProizvod = z.object({
   datum: z.string().default(datum),
   //chapters : proizvod: z
   proizvod: z
-    // @ts-ignore
+    //
     .array(schemaCreateProizvod, { required_error: 'Chapters are required.' })
     .min(1, { message: 'Course must contain atleast one chapter.' }),
     
@@ -193,7 +193,7 @@ const schemaCreateProizvod = z.object({
                         <FieldLabel htmlFor="form-rhf-input-brojTelefona">
                         Broj telefona
                         </FieldLabel>
-                        {/* @ts-ignore */}
+                        {/* */}
                         <Input
                         {...field}
                         id="form-rhf-input-brojTelefona"
@@ -273,7 +273,7 @@ const schemaCreateProizvod = z.object({
             </div>
             </FieldGroup>
             <FieldGroup>
-              {/* @ts-ignore */}
+              {/* */}
               {nalog.proizvod.map((p,i) => {
                 return (
                   <div key={p.imeProizvoda}>
@@ -288,7 +288,7 @@ const schemaCreateProizvod = z.object({
                                 <FieldLabel htmlFor="form-rhf-input-proizvod-sirinaProizvoda">
                                         {`Širina za ${i+1} proizvod`}
                                 </FieldLabel>
-                                {/* @ts-ignore */}
+                                {/* */}
                                 <Input
                                     {...field}
                                     id="form-rhf-input-proizvod-sirinaProizvoda"
@@ -314,7 +314,7 @@ const schemaCreateProizvod = z.object({
                                 <FieldLabel htmlFor="form-rhf-input-proizvod-duzinaProizvoda">
                                         {`Dužina za ${i+1} proizvod`}
                                 </FieldLabel>
-                                {/* @ts-ignore */}
+                                {/* */}
                                 <Input
                                     {...field}
                                     id="form-rhf-input-proizvod-duzinaProizvoda"
@@ -359,7 +359,7 @@ const schemaCreateProizvod = z.object({
                                   </Select>
                               </div>
                         )}/>
-                          {/* @ts-ignore */}
+                          {/* */}
                         {p.rupe.map((r,rIndex) => {
                           return (
                             <div key={r.rIndex}>
@@ -400,7 +400,7 @@ const schemaCreateProizvod = z.object({
                                         <FieldLabel htmlFor="form-rhf-input-proizvod-brojRupaProizvoda">
                                             {`Broj Rupa za ${rIndex+1} proizvod za Rupe`}
                                         </FieldLabel>
-                                        {/* @ts-ignore */}
+                                        {/* */}
                                         <Input
                                             {...field}
                                             id="form-rhf-input-proizvod-brojRupaProizvoda"
@@ -480,7 +480,7 @@ const schemaCreateProizvod = z.object({
   datum: z.string().default(datum),
   //chapters : proizvod: z
   proizvod: z
-    // @ts-ignore
+    //
     .array(schemaCreateProizvod, { required_error: 'Chapters are required.' })
     .min(1, { message: 'Course must contain atleast one chapter.' }),
     
@@ -583,7 +583,7 @@ const schemaCreateProizvod = z.object({
                         <FieldLabel htmlFor="form-rhf-input-proizvod-sirinaProizvoda">
                                 {`Širina za ${proizvodIndex+1} proizvod`}
                         </FieldLabel>
-                        {/* @ts-ignore */}
+                        {/* */}
                         <Input
                             {...field}
                             id="form-rhf-input-proizvod-sirinaProizvoda"
@@ -608,7 +608,7 @@ const schemaCreateProizvod = z.object({
                         <FieldLabel htmlFor="form-rhf-input-proizvod-duzinaProizvoda">
                                 {`Dužina za ${proizvodIndex+1} proizvod`}
                         </FieldLabel>
-                        {/* @ts-ignore */}
+                        {/* */}
                         <Input
                             {...field}
                             id="form-rhf-input-proizvod-duzinaProizvoda"
