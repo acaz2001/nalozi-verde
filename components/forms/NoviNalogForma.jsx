@@ -176,10 +176,6 @@ export function NoviNalogForma() {
     }
 
 
-  const rupaValues = watch(form);
-  console.log("FIELDSSS" , fields[0].rupeProizvoda)
-
-
   return (
     <Card className="w-full">
       <CardHeader>

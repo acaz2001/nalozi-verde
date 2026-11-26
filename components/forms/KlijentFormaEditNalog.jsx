@@ -1,5 +1,4 @@
 'use client'
-import React from 'react'
 import { useForm, Controller } from "react-hook-form";
 import {
   Card,
@@ -32,6 +31,7 @@ import { toast } from "sonner"
 import { redirect } from 'next/navigation'
 import { DevTool } from '@hookform/devtools';
 import { useParams } from 'next/navigation';
+import { useWatch } from "react-hook-form";
 
 const items = [
   { label: "Fizičko lice", value: "fizickoLice" },
@@ -51,7 +51,11 @@ const form = useForm({
     },
     })
 
-const watchVrstaNaloga =  form.watch('vrstaNaloga')  
+    const watchVrstaNaloga = useWatch({
+    control: form.control,
+    name: 'vrstaNaloga'
+  });
+
 
   
 const params = useParams();

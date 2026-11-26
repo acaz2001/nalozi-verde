@@ -35,6 +35,7 @@ import { redirect } from 'next/navigation'
 import moment from 'moment';
 import { DevTool } from '@hookform/devtools'
 import {Skeleton} from '../ui/skeleton'
+import { useWatch } from 'react-hook-form'
 
 const modeliKabina = [
   { label: "Model V01", value: "v01", image:"/Tus Kabina 3.jpg", cenaBezMontaze: 60, cenaSaMontazom: 90, cenaStaklaBojaBezMontaze: 90, cenaStaklaBojaMontaza: 120, cenaOkova: 100, cenaOkovaBoja: 120 },
@@ -164,11 +165,13 @@ function TusKabineNoviNalog() {
       setValue
     } = useForm()
 
-    const watchCena = form.watch("cena")
-    console.log("Watch je:",watchCena)
     
-    const watchBrojKabina = parseInt(form.watch("brojKabina"))
-    console.log("watchBrojKabina:", brojKabinaState );
+    // const watchBrojKabina = parseInt(form.watch("brojKabina"))
+
+  //   const watchBrojKabina = useWatch({
+  //   control: form.control,
+  //   name: 'brojKabina'
+  // });
 
 
     const onSubmit = async (data) => {
@@ -209,7 +212,12 @@ function TusKabineNoviNalog() {
       setVisina(200)
     },[])
 
-    const watchDodatniTroskovi = parseInt(form.watch('dodatniTroskovi'))
+    // const watchDodatniTroskovi = parseInt(form.watch('dodatniTroskovi'))
+
+    const watchDodatniTroskovi = useWatch({
+    control: form.control,
+    name: 'dodatniTroskovi'
+  });
 
     
 

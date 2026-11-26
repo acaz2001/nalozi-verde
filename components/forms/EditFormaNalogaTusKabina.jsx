@@ -33,7 +33,7 @@ import { useParams } from 'next/navigation'
 import moment from 'moment';
 import { toast } from "sonner"
 import { redirect } from 'next/navigation'
-
+import { useWatch } from 'react-hook-form'
 
 moment.locale('sr')
 const date = moment();
@@ -253,8 +253,12 @@ function EditFormaNalogaTusKabina({nalog}) {
 
     
 
-    const modelKabine = form.watch("modelKabine")
-    console.log("SELECT:", modelKabine)
+    // const modelKabine = form.watch("modelKabine")
+ 
+    const modelKabine = useWatch({
+    control: form.control,
+    name: 'modelKabine'
+  });
 
 
     useEffect(() => {

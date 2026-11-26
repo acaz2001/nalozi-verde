@@ -31,6 +31,7 @@ import { Button } from '../ui/button';
 import { toast } from "sonner"
 import { redirect } from 'next/navigation'
 import { DevTool } from '@hookform/devtools';
+import { useWatch } from 'react-hook-form';
 
 const items = [
   { label: "Fizičko lice", value: "fizickoLice" },
@@ -50,9 +51,12 @@ const form = useForm({
     },
     })
 
-  const watchVrstaNaloga =  form.watch('vrstaNaloga')  
+  // const watchVrstaNaloga =  form.watch('vrstaNaloga')  
   
-
+     const watchVrstaNaloga = useWatch({
+    control: form.control,
+    name: 'vrstaNaloga'
+  });
 
     const onSubmit = async (data) => {
       
