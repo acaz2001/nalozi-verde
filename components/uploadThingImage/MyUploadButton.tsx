@@ -8,7 +8,7 @@ import { twMerge } from 'tailwind-merge'
 export function MyUploadButton() {
   const [url, setUrl] = useState();
   return (
-    // @ts-ignore
+    // @ts-expect-error
     <UploadButton
     config={{ cn: twMerge }}
       className="mt-4 bg-amber-300 ut-button:bg-red-500 ut-button:ut-readying:bg-red-500/50"

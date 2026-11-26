@@ -10,7 +10,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { Input } from "../../components/ui/input"
+import { Input } from "../ui/input"
 import {
   Field,
   FieldDescription,
@@ -42,11 +42,11 @@ console.log("DATE JE search:",datum);
 
 
 
-//@ts-ignore
+
 export default function EditFormaNaloga ({nalog}) {
-  //@ts-ignore
+  
   const imeProizvoda = nalog.proizvod.map((p) => p.imeProizvoda)
-  //@ts-ignore
+  
   
   console.log("NALOG EDIT:" , nalog.proizvod.map((p) => p));
   
@@ -114,7 +114,7 @@ const schemaCreateProizvod = z.object({
   })
 
 
-  //@ts-ignore
+  
   const onSubmit = async (data) => {
       // const res = await fetch("api/nalozi", {
       //   method: "POST",
@@ -452,7 +452,7 @@ const schemaCreateProizvod = z.object({
   )
 }
 
-//@ts-ignore
+
 const Proizvod = ({nalog}) => {
   const schemaCreateRupe = z.object({
   // content: fiRupe
@@ -651,7 +651,7 @@ const schemaCreateProizvod = z.object({
   )
 }
 
-const ManageNotes = ({ proizvodIndex }: { proizvodIndex: number }) => {
+const ManageNotes = ({ proizvodIndex }) => {
   const {
     register,
     control,

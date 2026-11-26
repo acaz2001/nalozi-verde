@@ -52,7 +52,7 @@ const tacanMesec = mesec.charAt(0).toLocaleUpperCase()+mesec.slice(1)
 console.log("DATE JE search:",datum);
 
 
-// @ts-ignore
+// @ts-expect-error
 export const NoviNalog2 = ({klijenti} ) => {
   const [izabraniProizvod, setIzabraniProizvod] = useState({})
   const [izabranoImeProizvoda, setIzabranoImeProizvoda] = useState('')
@@ -61,7 +61,7 @@ export const NoviNalog2 = ({klijenti} ) => {
   const [brojTelefona, setBrojTelefona] = useState(0);
   
 
-  //@ts-ignore
+  
   const objectInArray = proizvodi.filter(obj => {  //variable koji cuva podatke izabranog proizvoda
     return obj.value === izabraniProizvod 
   })
@@ -81,7 +81,7 @@ export const NoviNalog2 = ({klijenti} ) => {
   //   console.log('formData', formData)
   //   console.log('errors', errors)
 
-  //@ts-ignore
+  //@ts-expect-error
   const onSubmit = async (data) => {
       const res = await fetch("/api/nalozi", {
         method: "POST",
@@ -113,16 +113,16 @@ export const NoviNalog2 = ({klijenti} ) => {
     const watchRam = watch('ram')
     const watchIme = watch('ime')
 
-    // @ts-ignore
+    // @ts-expect-error
     const sviKlijentiBrojTelefona = klijenti.map((k) => k.telefon)
-    // @ts-ignore
+    // @ts-expect-error
     const findBrojTelefona = klijenti.find((el) => el.ime === (watchIme || ''))
     
 
     console.log('sviKlijenti', findBrojTelefona);
 
     const noviArray = Object.values(izabraniProizvodi).map(
-      //@ts-ignore
+      //@ts-expect-error
       ({ imeProizvoda, obradaProizvoda }) =>
         `${imeProizvoda}-${obradaProizvoda}`
     );
@@ -265,7 +265,7 @@ export const NoviNalog2 = ({klijenti} ) => {
                                 <SelectValue placeholder="Izaberi klijenta" />
                                 </SelectTrigger>
                                 <SelectContent>
-                                {/* @ts-ignore */}
+                                {/* @ts-expect-error */}
                                 {klijenti.map((p) => (
                                     <SelectItem key={p._id} value={p.ime} 
                                     >
@@ -462,7 +462,7 @@ export const NoviNalog2 = ({klijenti} ) => {
 
 
 // ---------------------------PROIZVOD ------------------------------------
-//@ts-ignore
+//@ts-expect-error
 const Proizvod = ({izabraniProizvodi, setIzabraniProizvodi}) => {
   const {
     register,
@@ -484,7 +484,7 @@ const Proizvod = ({izabraniProizvodi, setIzabraniProizvodi}) => {
     
     const rupeProizvoda = rupe.flatMap((p) => p ?? []);
 
-    //@ts-ignore
+    //@ts-expect-error
     const cenaRupe = izabraniProizvodi.map(({fiRupe}) => {
       const pronadjenaRupa = rupeProizvoda.find(
         (rupa) => rupa.value === fiRupe
@@ -498,22 +498,22 @@ const Proizvod = ({izabraniProizvodi, setIzabraniProizvodi}) => {
 
     
     
-    //@ts-ignore
+    //@ts-expect-error
     const brojRupa = izabraniProizvodi.map(({brojRupa}) => brojRupa);
-    //@ts-ignore
+    //@ts-expect-error
     const fiRupa = izabraniProizvodi.flatMap((p) => p.rupe ?? []); // drzi array u kojima su vrednosti svih rupa u formi
-    {/* @ts-ignore */}
+    {/* @ts-expect-error */}
     const proizvodRupeForma = izabraniProizvodi.map((m) => m.rupe); // array of arrays, 0 : (2) [{…}, {…}] , 1 : [{…}], 
 
     const noviArray = Object.values(izabraniProizvodi).map(
-      //@ts-ignore
+      //@ts-expect-error
       ({ imeProizvoda, obradaProizvoda }) =>
         `${imeProizvoda}-${obradaProizvoda}`
     );
     
     const izabraniProizvodiArray = Object.values(izabraniProizvodi)
 
-    {/* @ts-ignore */}
+    {/* @ts-expect-error */}
     const testRupe = izabraniProizvodiArray[0]?.rupe?.map(({fiRupe, brojRupa}) => {
       const sveRupe = rupe.find(
         (r) => r.value === fiRupe
@@ -525,9 +525,9 @@ const Proizvod = ({izabraniProizvodi, setIzabraniProizvodi}) => {
       }
     })
 
-    {/* @ts-ignore */}
+    {/* @ts-expect-error */}
     let testCenaRupa = testRupe?.map(({cena,brojRupa}) => cena * brojRupa)
-    {/* @ts-ignore */}
+    {/* @ts-expect-error */}
     let sum = testCenaRupa?.reduce((accumulator, currentValue) => accumulator+currentValue,0);
     
 
@@ -558,7 +558,7 @@ const Proizvod = ({izabraniProizvodi, setIzabraniProizvodi}) => {
       });
 
        //rupeProizvoda return array of objects
-       {/* @ts-ignore */}
+       {/* @ts-expect-error */}
       const rupeProizvoda = izabraniProizvodiArray[index]?.rupe?.map(({fiRupe, brojRupa}) => {
           const sveRupe = rupe.find(
             (r) => r.value === fiRupe
@@ -569,9 +569,9 @@ const Proizvod = ({izabraniProizvodi, setIzabraniProizvodi}) => {
             brojRupa: brojRupa
           }
       }) 
-      {/* @ts-ignore */}
+      {/* @ts-expect-error */}
       let ceneRupa = rupeProizvoda?.map(({cena,brojRupa}) => cena * brojRupa)
-      {/* @ts-ignore */}
+      {/* @ts-expect-error */}
       let ukupnaCenaRupa = ceneRupa?.reduce((accumulator, currentValue) => accumulator+currentValue,0);
 
       const cenaObrade = ceneProizvoda[index]?.cena;
@@ -579,9 +579,9 @@ const Proizvod = ({izabraniProizvodi, setIzabraniProizvodi}) => {
       const sirina = Number(proizvod?.sirinaProizvoda);
 
       //Usluga
-      //@ts-ignore
+      //@ts-expect-error
       const usluga = sveUslugeProizvoda.find((element) => element.value === getUslugaProizvoda(index));
-      {/* @ts-ignore */}
+      {/* @ts-expect-error */}
       let cenaUsluge = (duzina/100) * (sirina/100) * usluga?.cena
 
       console.log('cenaUsluge', cenaUsluge);
@@ -687,11 +687,11 @@ const Proizvod = ({izabraniProizvodi, setIzabraniProizvodi}) => {
                   }}
                   onClientUploadComplete={(res : any) => {
                     //console.log("Files: ",  res[0]?.ufsUrl);
-                    {/* @ts-ignore */}
+                    {/* @ts-expect-error */}
                     setIzabraniProizvodi((prev) => ({
                       ...prev,
                       [proizvodIndex]: {
-                        // @ts-ignore
+                        
                         ...prev[proizvodIndex],
                         slikaProizvoda: res[0]?.ufsUrl,
                       },
@@ -731,11 +731,11 @@ const Proizvod = ({izabraniProizvodi, setIzabraniProizvodi}) => {
                               field.onChange(value);
 
                               // Čuva vrednost u posebnom state-u
-                              {/* @ts-ignore */}
+                              {/* @ts-expect-error */}
                               setIzabraniProizvodi((prev) => ({
                                 ...prev,
                                 [proizvodIndex]: {
-                                  // @ts-ignore
+                                  
                                   ...prev[proizvodIndex],
                                   imeProizvoda: value,
                                 },
@@ -771,11 +771,11 @@ const Proizvod = ({izabraniProizvodi, setIzabraniProizvodi}) => {
                           value={field.value}
                           onValueChange={(value) => {
                             field.onChange(value);
-                            {/* @ts-ignore */}
+                            {/* @ts-expect-error */}
                             setIzabraniProizvodi((prev) => ({
                               ...prev,
                               [proizvodIndex]: {
-                                // @ts-ignore
+                               
                                 ...prev[proizvodIndex],
                                 obradaProizvoda: value,
                               },
@@ -808,11 +808,11 @@ const Proizvod = ({izabraniProizvodi, setIzabraniProizvodi}) => {
                           value={field.value}
                           onValueChange={(value) => {
                             field.onChange(value);
-                            {/* @ts-ignore */}
+                            {/* @ts-expect-error */}
                             setIzabraniProizvodi((prev) => ({
                               ...prev,
                               [proizvodIndex]: {
-                                // @ts-ignore
+                                
                                 ...prev[proizvodIndex],
                                 uslugaProizvoda: value,
                               },
@@ -851,7 +851,7 @@ const Proizvod = ({izabraniProizvodi, setIzabraniProizvodi}) => {
                             type="number"
                             onChange={(e) => {
                               field.onChange(e.target.value);
-                              {/* @ts-ignore */}
+                              {/* @ts-expect-error */}
                               setIzabraniProizvodi((prev) => ({
                                 ...prev,
                                 [proizvodIndex]: {
@@ -886,7 +886,7 @@ const Proizvod = ({izabraniProizvodi, setIzabraniProizvodi}) => {
                             type="number"
                             onChange={(e) => {
                               field.onChange(e.target.value);
-                              {/* @ts-ignore */}
+                              {/* @ts-expect-error */}
                               setIzabraniProizvodi((prev) => ({
                                 ...prev,
                                 [proizvodIndex]: {
@@ -921,7 +921,7 @@ const Proizvod = ({izabraniProizvodi, setIzabraniProizvodi}) => {
                             type="number"
                             onChange={(e) => {
                               field.onChange(e.target.value);
-                              {/* @ts-ignore */}
+                              {/* @ts-expect-error */}
                               setIzabraniProizvodi((prev) => ({
                                 ...prev,
                                 [proizvodIndex]: {
@@ -1019,7 +1019,7 @@ const Proizvod = ({izabraniProizvodi, setIzabraniProizvodi}) => {
                             type='number'
                             onChange={(e) => {
                               field.onChange(e.target.value);
-                              {/* @ts-ignore */}
+                              {/* @ts-expect-error */}
                               setIzabraniProizvodi((prev) => ({
                                 ...prev,
                                 [proizvodIndex]: {
@@ -1116,7 +1116,7 @@ const Proizvod = ({izabraniProizvodi, setIzabraniProizvodi}) => {
 
                 
             </FieldGroup>
-            {/* @ts-ignore */}
+            {/* @ts-expect-error */}
             <ManageNotes proizvodIndex={proizvodIndex} setIzabraniProizvodi={setIzabraniProizvodi} izabraniProizvodi={izabraniProizvodi}/>
             <div className='text-red-600 text-sm mt-1'>
               {/* Error: Chapter notes */}
@@ -1148,7 +1148,7 @@ const Proizvod = ({izabraniProizvodi, setIzabraniProizvodi}) => {
   )
 }
 
-//@ts-ignore
+//@ts-expect-error
 const ManageNotes = ({ proizvodIndex,setIzabraniProizvodi,izabraniProizvodi }: { proizvodIndex: number }) => {
   const {
     register,
@@ -1156,9 +1156,9 @@ const ManageNotes = ({ proizvodIndex,setIzabraniProizvodi,izabraniProizvodi }: {
     formState: { errors },
   } = useFormContextCreateCourse()
 
-  //@ts-ignore
+  //@ts-expect-error
 const azurirajRupu = (proizvodIndex, rupaIndex, promene) => {
-  {/* @ts-ignore */}
+  {/* @ts-expect-error */}
   setIzabraniProizvodi((prev) => {
     const proizvod = prev[proizvodIndex] ?? {};
     // Kopiramo postojeće rupe
@@ -1302,7 +1302,7 @@ const azurirajRupu = (proizvodIndex, rupaIndex, promene) => {
 }
 
 
-{/* @ts-ignore */}
+{/* @ts-expect-error */}
 const Ram = ({izabraniProizvodi, setIzabraniProizvodi}) => {
   const {
     register,
@@ -1352,11 +1352,11 @@ const Ram = ({izabraniProizvodi, setIzabraniProizvodi}) => {
   const watchBrojRamova = fields.map((_,index) => watchRam[index]?.brojKomadaRamova)
 
   function getCenaRama(index: number) {
-    {/* @ts-ignore */}
+    {/* @ts-expect-error */}
     const ukupnaCenaRama = Number((((watchRam[index]?.sirina / 100) + (watchRam[index]?.duzina / 100)) * 2) * cenaRama[index]?.cena);
-    {/* @ts-ignore */}
+    {/* @ts-expect-error */}
     const ukupnaCenaStakla = (((watchRam[index]?.sirina / 100) * (watchRam[index]?.duzina / 100)) * cenaStakla[index]?.cena) ;
-    {/* @ts-ignore */}
+    {/* @ts-expect-error */}
     const ukupnaCenaPaspatua = (((watchRam[index]?.sirina / 100) * (watchRam[index]?.duzina / 100)) * cenaPaspatua[index]?.cena) ;
 
 
@@ -1430,12 +1430,12 @@ const Ram = ({izabraniProizvodi, setIzabraniProizvodi}) => {
                           onValueChange={(value) => {
                             // Ažurira React Hook Form
                             field.onChange(value);
-                            {/* @ts-ignore */}
+                            {/* @ts-expect-error */}
                             // Čuva vrednost u posebnom state-u
                             setIzabraniProizvodi((prev) => ({
                               ...prev,
                               [ramIndex]: {
-                                // @ts-ignore
+                                
                                 ...prev[ramIndex],
                                 staklo: value,
                               },
@@ -1478,12 +1478,12 @@ const Ram = ({izabraniProizvodi, setIzabraniProizvodi}) => {
                           onValueChange={(value) => {
                             // Ažurira React Hook Form
                             field.onChange(value);
-                            {/* @ts-ignore */}
+                            {/* @ts-expect-error */}
                             // Čuva vrednost u posebnom state-u
                             setIzabraniProizvodi((prev) => ({
                               ...prev,
                               [ramIndex]: {
-                                // @ts-ignore
+                                
                                 ...prev[ramIndex],
                                 sifraRama: value,
                               },
@@ -1531,7 +1531,7 @@ const Ram = ({izabraniProizvodi, setIzabraniProizvodi}) => {
                             type="number"
                             onChange={(e) => {
                               field.onChange(e.target.value);
-                              {/* @ts-ignore */}
+                              {/* @ts-expect-error */}
                               setIzabraniProizvodi((prev) => ({
                                 ...prev,
                                 [ramIndex]: {
@@ -1564,7 +1564,7 @@ const Ram = ({izabraniProizvodi, setIzabraniProizvodi}) => {
                             type="number"
                             onChange={(e) => {
                               field.onChange(e.target.value);
-                              {/* @ts-ignore */}
+                              {/* @ts-expect-error */}
                               setIzabraniProizvodi((prev) => ({
                                 ...prev,
                                 [ramIndex]: {
@@ -1597,7 +1597,7 @@ const Ram = ({izabraniProizvodi, setIzabraniProizvodi}) => {
                             type="number"
                             onChange={(e) => {
                               field.onChange(parseInt(e.target.value));
-                              {/* @ts-ignore */}
+                              {/* @ts-expect-error */}
                               setIzabraniProizvodi((prev) => ({
                                 ...prev,
                                 [ramIndex]: {
@@ -1631,12 +1631,12 @@ const Ram = ({izabraniProizvodi, setIzabraniProizvodi}) => {
                           onValueChange={(value) => {
                             // Ažurira React Hook Form
                             field.onChange(value);
-                            {/* @ts-ignore */}
+                            {/* @ts-expect-error */}
                             // Čuva vrednost u posebnom state-u
                             setIzabraniProizvodi((prev) => ({
                               ...prev,
                               [ramIndex]: {
-                                // @ts-ignore
+                                
                                 ...prev[ramIndex],
                                 paspatuBoja: value,
                               },
@@ -1676,11 +1676,11 @@ const Ram = ({izabraniProizvodi, setIzabraniProizvodi}) => {
                             field.onChange(value);
 
                             // Čuva vrednost u posebnom state-u
-                            {/* @ts-ignore */}
+                            {/* @ts-expect-error */}
                             setIzabraniProizvodi((prev) => ({
                               ...prev,
                               [ramIndex]: {
-                                // @ts-ignore
+                                
                                 ...prev[ramIndex],
                                 paspatuBoja: value,
                               },
@@ -1753,7 +1753,7 @@ const Ram = ({izabraniProizvodi, setIzabraniProizvodi}) => {
                             autoComplete="napomena"
                             onChange={(e) => {
                               field.onChange(e.target.value);
-                              {/* @ts-ignore */}
+                              {/* @ts-expect-error */}
                               setIzabraniProizvodi((prev) => ({
                                 ...prev,
                                 [ramIndex]: {
@@ -1784,7 +1784,7 @@ const Ram = ({izabraniProizvodi, setIzabraniProizvodi}) => {
                             type="number"
                             onChange={(e) => {
                               field.onChange(e.target.value);
-                              {/* @ts-ignore */}
+                              {/* @ts-expect-error */}
                               setIzabraniProizvodi((prev) => ({
                                 ...prev,
                                 [ramIndex]: {
@@ -1818,7 +1818,7 @@ const Ram = ({izabraniProizvodi, setIzabraniProizvodi}) => {
                             autoComplete="dodatnaCenaNapomena"
                             onChange={(e) => {
                               field.onChange(e.target.value);
-                              {/* @ts-ignore */}
+                              {/* @ts-expect-error */}
                               setIzabraniProizvodi((prev) => ({
                                 ...prev,
                                 [ramIndex]: {

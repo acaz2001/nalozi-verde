@@ -35,7 +35,7 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-  ],
+, "components/forms/EditFormaNaloga.jsx", "components/forms/forms.tsx", "app/layout.jsx"  ],
   "exclude": [
     "node_modules"
   ]
