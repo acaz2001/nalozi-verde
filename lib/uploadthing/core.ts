@@ -1,4 +1,3 @@
-import { log } from "node:console";
 import { createUploadthing, type FileRouter } from "uploadthing/next";
 import { UploadThingError } from "uploadthing/server";
 

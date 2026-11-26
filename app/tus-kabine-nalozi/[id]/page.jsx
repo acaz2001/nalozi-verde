@@ -1,7 +1,4 @@
 import React from 'react'
-import { NalogKarticaZaObjekat } from '../../../components/NalogKartica';
-import EditFormaNaloga from '../../../components/forms/EditFormaNaloga';
-import  NalogKabinaCardZaObjekat  from '../../../components/tusKabine/NalogKabinaCardZaObjekat';
 import EditFormaNalogaTusKabina from '../../../components/forms/EditFormaNalogaTusKabina';
 import { promises as fs } from "fs";
 import path from "path";

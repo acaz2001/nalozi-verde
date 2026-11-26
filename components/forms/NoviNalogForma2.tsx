@@ -2,33 +2,32 @@
 
 import { useFormContextCreateCourse } from './forms'
 import { useFieldArray, Controller } from 'react-hook-form'
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Select,
   SelectContent,
   SelectItem,
-  SelectSeparator,
+
   SelectTrigger,
   SelectValue,
-  SelectGroup
+
 } from "@/components/ui/select"
 import { Input } from "../../components/ui/input"
 import {
   Field,
-  FieldContent,
+
   FieldDescription,
   FieldError,
   FieldGroup,
   FieldLabel,
-  FieldSet ,
-  FieldLegend 
+
 } from "@/components/ui/field"
 import { Button } from "@/components/ui/button"
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
+
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -37,9 +36,6 @@ import moment from 'moment';
 import { redirect } from 'next/navigation';
 import { toast } from 'sonner';
 import { proizvodi,obrada,rupe, paspatuBoja, ramSifra, ramStaklo, uslugaProizvoda } from '@/lib/constants'; 
-import { log } from 'console';
-import { MyUploadButton } from '../uploadThingImage/MyUploadButton';
-import Link from 'next/link';
 import { UploadButton } from '@/lib/uploadthing/uploadthing';
 import Image from 'next/image';
 import { Textarea } from '../ui/textarea';

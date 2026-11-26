@@ -1,5 +1,4 @@
-import { promises as fs } from "fs";
-import path from "path";
+
 import { NextResponse } from "next/server";
 import dbConnect from '../../../lib/db'
 import KabineNalozi from "../../../lib/models/KabineNalozi";

@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'
+import React from 'react'
 import {Naslov, OpisTeksta} from '../../components/typography/Kontent'
 import { fetchKlijenti } from '../../actions/action'
 import KlijentContainer from '../../components/klijenti/KlijentContainer';
@@ -46,9 +46,7 @@ async function KlijentiPage(props) {
                 Unesi ime ili broj telefona klijenta.
               </p>
             </div>
-            <Suspense fallback='Loading'>
               <Search placeholder='Pretraži klijenta' className='w-full'/>
-            </Suspense>
           </div> 
         </div>
         <KlijentContainer klijenti={klijenti} query={query}/>

@@ -1,7 +1,4 @@
-import Kontent, { CrveniSpan, CrveniTekst, KosiTekst, LinijaOdvajanja, Lista, ListaBrojevi, Naslov, 
-NaslovListe, PodebljaniTekst, PodebljanPodNaslov, PodNaslov, Span, Tekst } from "../components/typography/Kontent"
-import MyDocument from '../components/pdf/MyDocument'
-import { PDFViewer } from "@react-pdf/renderer";
+import { Naslov} from "../components/typography/Kontent"
 
 export default function Home() {
   

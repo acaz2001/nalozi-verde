@@ -1,18 +1,6 @@
 'use client'
 import React, { useState,useEffect } from 'react'
-import {
-  Item,
-  ItemActions,
-  ItemContent,
-  ItemDescription,
-  ItemGroup,
-  ItemMedia,
-  ItemSeparator,
-  ItemTitle,
-} from "@/components/ui/item"
-import Link from 'next/link'
 import { Button } from "@/components/ui/button"
-import { PlusIcon, Check, X, Pencil  } from "lucide-react"
 import { useForm, Controller,useFieldArray } from "react-hook-form"
 import {proizvodi} from "../../lib/constants"
 import {
@@ -22,7 +10,6 @@ import {
   SelectSeparator,
   SelectTrigger,
   SelectValue,
-  SelectGroup
 } from "@/components/ui/select"
 import {
   Field,
@@ -38,15 +25,10 @@ import {
 import {
   RadioGroup,
   RadioGroupItem,
-} from "@/components/ui/radio-group"
-import { zodResolver } from "@hookform/resolvers/zod";
+} from "../ui/radio-group"
 import * as z from "zod";
-import {InputGroup,InputGroupInput,InputGroupAddon,InputGroupButton  } from "../ui/input-group"
 import { Input } from "../ui/input"
-import { rupe } from '../../lib/constants'
-import Image from 'next/image'
 import { Textarea } from "@/components/ui/textarea"
-import { useSearchParams } from 'next/navigation';
 import { useParams } from 'next/navigation'
 import moment from 'moment';
 import { toast } from "sonner"

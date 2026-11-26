@@ -1,5 +1,5 @@
 import React from 'react'
-import NalogKartica, { NalogKarticaZaObjekat } from '../../../components/NalogKartica';
+import NalogKartica from '../../../components/NalogKartica';
 import EditFormaNaloga from '../../../components/forms/EditFormaNaloga';
 import { FormProviderCreateCourse } from '../../../components/forms/forms';
 

@@ -7,35 +7,26 @@ import {
   Select,
   SelectContent,
   SelectItem,
-  SelectSeparator,
   SelectTrigger,
   SelectValue,
-  SelectGroup
 } from "@/components/ui/select"
 import { Input } from "../../components/ui/input"
 import {
   Field,
-  FieldContent,
   FieldDescription,
   FieldError,
   FieldGroup,
   FieldLabel,
-  FieldSet ,
-  FieldLegend 
 } from "@/components/ui/field"
 import { Button } from "@/components/ui/button"
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { DevTool } from "@hookform/devtools";
 import moment from 'moment';
-import { redirect } from 'next/navigation';
-import { toast } from 'sonner';
 import {obrada, proizvodi, rupe} from '../../lib/constants'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod';

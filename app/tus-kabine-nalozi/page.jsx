@@ -1,9 +1,5 @@
 import React, { Suspense } from "react"
-import NalogKartica from "../../components/NalogKartica"
-import { Award } from "lucide-react";
-import NalogContainer from "../../components/NalogContainer";
 import Search from "../../components/Search"
-import NalogKabinaContainer from "../../components/tusKabine/NalogKabinaContainer";
 import Link from "next/link";
 import { Button } from "../../components/ui/button";
 import Kalendar2 from "../../components/Kalendar2";

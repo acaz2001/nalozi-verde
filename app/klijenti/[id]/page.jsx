@@ -1,9 +1,6 @@
 import React from 'react'
 import { getKlijentId } from '../../../actions/action'
 import KlijentCard from '../../../components/klijenti/KlijentCard';
-import KlijentNaloziContainer from '../../../components/klijenti/KlijentNaloziContainer';
-import {KlijentKabineNaloziContainer} from '../../../components/klijenti/KlijentNaloziContainer';
-import FliterDugmeUredjeniNalozi from '../../../components/klijenti/FliterDugmeUredjeniNalozi';
 import KlijentMain from '../../../components/klijenti/KlijentMain';
 
 

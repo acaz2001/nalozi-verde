@@ -2,7 +2,6 @@ import React from "react"
 import Kalendar2 from "../../components/Kalendar2"
 import Search from "../../components/Search"
 import NalogMain from "../../components/NalogMain"
-import { Suspense } from "react"
 
 async function getPosts() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}api/nalozi`, {method:"GET"});

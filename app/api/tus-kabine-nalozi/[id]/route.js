@@ -1,8 +1,5 @@
-import { promises as fs } from "fs";
-import { redirect } from "next/navigation";
+
 import { NextResponse } from "next/server";
-import path from "path";
-import { file } from "zod";
 import KabineNalozi from "../../../../lib/models/KabineNalozi";
 import dbConnect from "../../../../lib/db";
 
