@@ -78,9 +78,9 @@ const montaza = [
 
 //let now = new Date();
 moment.locale('sr')
-let date = moment();
-let now = date.format("MMMM DD YYYY")
-let mesec = date.format("MMMM")
+const date = moment();
+const now = date.format("MMMM DD YYYY")
+const mesec = date.format("MMMM")
 
 console.log("Datum JE:",now);
 

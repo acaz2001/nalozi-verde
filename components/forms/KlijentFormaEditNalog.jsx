@@ -51,8 +51,8 @@ const form = useForm({
     },
     })
 
-let watchVrstaNaloga =  form.watch('vrstaNaloga')  
-  console.log('watchVrstaNaloga', watchVrstaNaloga);
+const watchVrstaNaloga =  form.watch('vrstaNaloga')  
+
   
 const params = useParams();
 

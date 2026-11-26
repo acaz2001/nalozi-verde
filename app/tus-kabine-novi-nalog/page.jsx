@@ -10,10 +10,10 @@ import {
 import moment from 'moment';
 
 
-let date = moment();
+const date = moment();
 moment.locale('sr')
-let datum = date.format("MMMM DD YYYY")
-let mesec = date.format("MMMM")
+const datum = date.format("MMMM DD YYYY")
+const mesec = date.format("MMMM")
 
 function TusKabinePage() {
   return (

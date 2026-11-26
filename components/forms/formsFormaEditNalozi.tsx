@@ -7,8 +7,8 @@ import { z } from 'zod'
 import moment from 'moment'
 
 moment.locale('sr')
-let date = moment();
-let datum = date.format("MMMM DD YYYY")
+const date = moment();
+const datum = date.format("MMMM DD YYYY")
 //let tacanDatum = date.format("MMMM DD YYYY").charAt(0).toLocaleUpperCase()+datum.slice(1)
 
 

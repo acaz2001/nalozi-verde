@@ -32,11 +32,11 @@ import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod';
 
 moment.locale('sr')
-let date = moment();
-let datum = date.format("MMMM DD YYYY")
-let tacanDatum = date.format("MMMM DD YYYY").charAt(0).toLocaleUpperCase()+datum.slice(1)
-let mesec = date.format("MMMM")
-let tacanMesec = mesec.charAt(0).toLocaleUpperCase()+mesec.slice(1)
+const date = moment();
+const datum = date.format("MMMM DD YYYY")
+const tacanDatum = date.format("MMMM DD YYYY").charAt(0).toLocaleUpperCase()+datum.slice(1)
+const mesec = date.format("MMMM")
+const tacanMesec = mesec.charAt(0).toLocaleUpperCase()+mesec.slice(1)
 console.log("DATE JE search:",datum);
 
 
@@ -113,10 +113,6 @@ const schemaCreateProizvod = z.object({
     control: proizvodForm.control,
   })
 
-  const formData = form.watch()
-  //   console.log('formData', formData)
-  //   console.log('errors', errors)
-  
 
   //@ts-ignore
   const onSubmit = async (data) => {
