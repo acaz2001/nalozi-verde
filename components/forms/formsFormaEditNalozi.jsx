@@ -43,7 +43,6 @@ export const schemaCreateCourse = z.object({
   datum: z.string().default(datum),
   //chapters : proizvod: z
   proizvod: z
-    // @ts-expect-error
     .array(schemaCreateProizvod, { required_error: 'Chapters are required.' })
     .min(1, { message: 'Course must contain atleast one chapter.' }),
     
@@ -53,7 +52,6 @@ export const schemaCreateCourse = z.object({
  * Hooks
  */
 
-export type FormTypeCreateCourse = z.infer<typeof schemaCreateCourse>
 
 export const useFormCreateCourse = () =>
   useForm<FormTypeCreateCourse>({
@@ -65,9 +63,7 @@ export const useFormCreateCourse = () =>
  * Context
  */
 //@ts-expect-error 
-export const FormProviderCreateCourseNaloziEdit = ({children, nalog}: {
-  children: ReactNode
-},
+export const FormProviderCreateCourseNaloziEdit = ({children, nalog},
 
 ) => {
   const methods = useFormCreateCourse()
@@ -76,4 +72,4 @@ export const FormProviderCreateCourseNaloziEdit = ({children, nalog}: {
 }
 
 export const useFormContextCreateCourse = () =>
-  useFormContext<FormTypeCreateCourse>()
+  useFormContext()

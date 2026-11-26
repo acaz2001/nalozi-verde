@@ -12,7 +12,7 @@ import {
   SelectValue,
 
 } from "@/components/ui/select"
-import { Input } from "../../components/ui/input"
+import { Input } from "../ui/input"
 import {
   Field,
 
@@ -535,7 +535,7 @@ const Proizvod = ({izabraniProizvodi, setIzabraniProizvodi}) => {
     
     const proizvodWatch = watch("proizvod");
    
-    const getUslugaProizvoda = function(index: number) {
+    const getUslugaProizvoda = function(index) {
       const proizvod = proizvodWatch[index].imeProizvoda;
 
       return `${proizvod}-${proizvodWatch[index].uslugaProizvoda}`
@@ -544,7 +544,7 @@ const Proizvod = ({izabraniProizvodi, setIzabraniProizvodi}) => {
     const watchBrojProuizvoda = fields.map((_,index) => proizvodWatch[index].brojKomadaProizvoda)
     const watchDodatnoZaNaplatu = fields.map((_, index) => izabraniProizvodi[index]?.dodatnoZaNaplatuProizvod)
 
-    function cenaProizvoda(index: number): number | undefined {
+    function cenaProizvoda(index) {
       const proizvod = izabraniProizvodi[index];
       const ceneProizvoda = noviArray.map((value) => {
         const pronadjenaObrada = sveObrade.find(
@@ -616,7 +616,7 @@ const Proizvod = ({izabraniProizvodi, setIzabraniProizvodi}) => {
     useEffect(() => {
       cenePoProizvodu.forEach((cena, index) => {
         const cenaZaFormu = cena ?? Number.NaN;
-        const poljeCene = `proizvod.${index}.cena` as const;
+        const poljeCene = `proizvod.${index}.cena` ;
 
         if (!Object.is(getValues(poljeCene), cenaZaFormu)) {
           setValue(poljeCene, cenaZaFormu, { shouldValidate: true });
@@ -629,7 +629,7 @@ const Proizvod = ({izabraniProizvodi, setIzabraniProizvodi}) => {
     useEffect(()=> {
       slikaProizvodaString2.forEach((slika,index) => {
         //const slikaJe = slika ?? '';
-        const slikaString = `proizvod.${index}.slikaProizvoda` as const;
+        const slikaString = `proizvod.${index}.slikaProizvoda`;
         setValue(slikaString, slikaProizvodaString)
 
       })
@@ -685,7 +685,7 @@ const Proizvod = ({izabraniProizvodi, setIzabraniProizvodi}) => {
                     allowedContent:
                       "flex h-8 flex-col items-center justify-center px-2 text-white",
                   }}
-                  onClientUploadComplete={(res : any) => {
+                  onClientUploadComplete={(res) => {
                     //console.log("Files: ",  res[0]?.ufsUrl);
                     {/* @ts-expect-error */}
                     setIzabraniProizvodi((prev) => ({
@@ -699,7 +699,7 @@ const Proizvod = ({izabraniProizvodi, setIzabraniProizvodi}) => {
                     toast('Slika je učitana.')  
                     
                   }}
-                  onUploadError={(error: Error) => {
+                  onUploadError={(error) => {
                     toast('Slika nije učitana.')
                     alert(`ERROR! ${error.message}`);
                   }}
@@ -1149,7 +1149,7 @@ const Proizvod = ({izabraniProizvodi, setIzabraniProizvodi}) => {
 }
 
 //@ts-expect-error
-const ManageNotes = ({ proizvodIndex,setIzabraniProizvodi,izabraniProizvodi }: { proizvodIndex: number }) => {
+const ManageNotes = ({ proizvodIndex,setIzabraniProizvodi,izabraniProizvodi }) => {
   const {
     register,
     control,
@@ -1351,7 +1351,7 @@ const Ram = ({izabraniProizvodi, setIzabraniProizvodi}) => {
   const watchDodatnaCenaRama = fields.map((_,index) => izabraniProizvodi[index]?.dodatnaCena)
   const watchBrojRamova = fields.map((_,index) => watchRam[index]?.brojKomadaRamova)
 
-  function getCenaRama(index: number) {
+  function getCenaRama(index) {
     {/* @ts-expect-error */}
     const ukupnaCenaRama = Number((((watchRam[index]?.sirina / 100) + (watchRam[index]?.duzina / 100)) * 2) * cenaRama[index]?.cena);
     {/* @ts-expect-error */}
@@ -1375,7 +1375,7 @@ const Ram = ({izabraniProizvodi, setIzabraniProizvodi}) => {
   useEffect(() => {
       cenaPoRamu.forEach((cena, index) => {
         const cenaZaFormu = cena ?? Number.NaN;
-        const poljeCene = `ram.${index}.cenaRama` as const;
+        const poljeCene = `ram.${index}.cenaRama`;
 
         if (!Object.is(getValues(poljeCene), cenaZaFormu)) {
           setValue(poljeCene, cenaZaFormu, { shouldValidate: true });

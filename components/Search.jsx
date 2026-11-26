@@ -3,7 +3,7 @@ import { useDebouncedCallback } from 'use-debounce';
 import { usePathname, useSearchParams, useRouter } from 'next/navigation';
 import { cn } from '@/lib/utils';
 
-export default function Search({ placeholder, className }: { placeholder: string; className: string }) {
+export default function Search({ placeholder, className }) {
     const searchParams = useSearchParams();
     const pathname = usePathname();
     const { replace } = useRouter();

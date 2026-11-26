@@ -15,8 +15,8 @@ import moment from 'moment';
 moment.locale('sr')
 const date = moment();
 const datum = date.format("MMMM DD YYYY")
-const tacanDatum = date.format("MMMM DD YYYY").charAt(0).toLocaleLowerCase()+datum.slice(1)
-const mesec = date.format("MMMM")
+// const tacanDatum = date.format("MMMM DD YYYY").charAt(0).toLocaleLowerCase()+datum.slice(1)
+// const mesec = date.format("MMMM")
 
 
 

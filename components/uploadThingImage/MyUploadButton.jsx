@@ -13,12 +13,12 @@ export function MyUploadButton() {
     config={{ cn: twMerge }}
       className="mt-4 bg-amber-300 ut-button:bg-red-500 ut-button:ut-readying:bg-red-500/50"
       endpoint="imageUploader"
-      onClientUploadComplete={(res : any) => {
+      onClientUploadComplete={(res ) => {
         console.log("Files: ",  res);
         setUrl(res)
         // alert("Upload Completed");
       }}
-      onUploadError={(error: Error) => {
+      onUploadError={(error) => {
         alert(`ERROR! ${error.message}`);
       }}
     />

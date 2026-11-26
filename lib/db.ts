@@ -1,6 +1,5 @@
 // // lib/mongodb.js
 import mongoose from 'mongoose';
-import { MongoClient } from 'mongodb';
 const MONGO_URI = "mongodb+srv://acazivkovic012_db_user:eMV3iwtzHZ12xFdU@cluster0.w7ymw89.mongodb.net/mydb"
 
 

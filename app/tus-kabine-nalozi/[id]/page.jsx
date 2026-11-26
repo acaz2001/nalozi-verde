@@ -18,7 +18,7 @@ async function TusKabineNaloziIdPage({params}) {
   //const nalog = res.json();
   const filePath = path.join(process.cwd(), "data", "tusKabineNalozi.json");
   const fileData = await fs.readFile(filePath, "utf8");
-  const nalozi = JSON.parse(fileData);
+  // const nalozi = JSON.parse(fileData);
 
   //console.log ("NALOZI JE: ", nalozi.findIndex((obj) => obj.id == id))
 

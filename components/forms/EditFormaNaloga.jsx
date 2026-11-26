@@ -108,10 +108,10 @@ const schemaCreateProizvod = z.object({
   })
 
   // const { append, remove, fields } = useFieldArray({
-  const proizvodFormArray = useFieldArray({
-    name: 'proizvod',
-    control: proizvodForm.control,
-  })
+  // const proizvodFormArray = useFieldArray({
+  //   name: 'proizvod',
+  //   control: proizvodForm.control,
+  // })
 
 
   

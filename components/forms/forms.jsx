@@ -64,7 +64,7 @@ export const schemaCreateCourse = z.object({
   datum: z.string().default(datum),
   //chapters : proizvod: z
   proizvod: z
-    // @ts-ignore
+
     // .array(schemaCreateProizvod, { required_error: 'Chapters are required.' }),
     //.min(1, { message: 'Course must contain atleast one chapter.' }),
     .array(schemaCreateProizvod),
@@ -79,11 +79,11 @@ export const schemaCreateCourse = z.object({
  * Hooks
  */
 
-export type FormTypeCreateCourse = z.infer<typeof schemaCreateCourse>
+//export type FormTypeCreateCourse = z.infer<typeof schemaCreateCourse>
 
 export const useFormCreateCourse = () =>
-  useForm<FormTypeCreateCourse>({
-    //@ts-ignore
+  useForm({
+   
     resolver: zodResolver(schemaCreateCourse),
     
   })
@@ -94,13 +94,20 @@ export const useFormCreateCourse = () =>
 
 export const FormProviderCreateCourse = ({
   children,
-}: {
-  children: ReactNode
-}) => {
+}
+) => {
   const methods = useFormCreateCourse()
   //return <FormProvider {...methods}>{children}</FormProvider>
   return <FormProvider {...methods}>{children}</FormProvider>
 }
 
 export const useFormContextCreateCourse = () =>
-  useFormContext<FormTypeCreateCourse>()
+  useFormContext()
+
+
+
+
+
+
+///tss
+
