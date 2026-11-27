@@ -3,6 +3,8 @@ import {FormProviderCreateCourse} from '../../components/forms/forms'
 import {NoviNalog2} from '../../components/forms/NoviNalogForma2'
 import { fetchKlijenti } from '../../actions/action'
 
+export const dynamic = 'force-dynamic'
+
 async function getKlijenti() {
   const res = await fetchKlijenti();
   return res.json();

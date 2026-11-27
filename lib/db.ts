@@ -1,13 +1,8 @@
 // // lib/mongodb.js
 import mongoose from 'mongoose';
-const MONGO_URI = "mongodb+srv://acazivkovic012_db_user:eMV3iwtzHZ12xFdU@cluster0.w7ymw89.mongodb.net/mydb"
-
-
-
-
-
 
 async function dbConnect() {
+  const MONGO_URI = process.env.MONGO_URI;
   if (!MONGO_URI) {
     throw new Error('Please define the MONGO_URI environment variable');
   }
