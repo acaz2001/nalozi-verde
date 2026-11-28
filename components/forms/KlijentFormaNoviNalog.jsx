@@ -43,7 +43,7 @@ const form = useForm({
     //resolver: zodResolver(formSchema),
     defaultValues: {
         ime: '',
-        telefon: undefined,
+        telefon: '',
         vrstaNaloga: '',
         pibFirme: undefined,
         adresaFirme: ''
@@ -137,7 +137,7 @@ const form = useForm({
                             placeholder="Unesi broj telefona"
                             autoComplete="telefon"
                             required
-                            type="number"
+                            type="text"
                             />
                             <FieldDescription>
                             

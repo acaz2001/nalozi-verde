@@ -59,7 +59,7 @@ const schemaCreateRam = z.object({
 export const schemaCreateCourse = z.object({
   //title : ime
   ime: z.string().min(3),
-  brojTelefona: z.coerce.number(),
+  brojTelefona: z.string().min(3),
   stanjeNaloga: z.string().default("nijeUradjen"),
   datum: z.string().default(datum),
   //chapters : proizvod: z

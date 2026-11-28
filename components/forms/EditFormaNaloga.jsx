@@ -71,7 +71,7 @@ const schemaCreateProizvod = z.object({
  const schemaCreateCourse = z.object({
   //title : ime
   ime: z.string().min(3),
-  brojTelefona: z.coerce.number(),
+  brojTelefona: z.string().min(3),
   stanjeNaloga: z.string().default("nijeUradjen"),
   datum: z.string().default(datum),
   //chapters : proizvod: z
@@ -200,7 +200,7 @@ const schemaCreateProizvod = z.object({
                         aria-invalid={fieldState.invalid}
                         placeholder="Unesi broj telefona"
                         autoComplete="brojTelefona"
-                        type='number'
+                        type='text'
                         defaultValue={nalog.brojTelefona}
                         // onChange={(e) => (parseInt(e.target.value))}
                         />

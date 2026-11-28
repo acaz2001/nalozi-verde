@@ -1,6 +1,7 @@
 import React from 'react';
 import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
-import { createTw } from '@react-pdf/tailwind';
+import { createTw } from "react-pdf-tailwind";
+
 
 const styles = StyleSheet.create({
     tableHeader: {

@@ -58,7 +58,7 @@ export const NoviNalog2 = ({klijenti} ) => {
   const [izabranoImeProizvoda, setIzabranoImeProizvoda] = useState('')
   const [izabranaRupa, setIzabranaRupa] = useState('')
   const [selectKlijent, setSelectKlijent] = useState('');
-  const [brojTelefona, setBrojTelefona] = useState(0);
+  const [brojTelefona, setBrojTelefona] = useState('');
   
 
   
@@ -308,7 +308,7 @@ export const NoviNalog2 = ({klijenti} ) => {
                           aria-invalid={fieldState.invalid}
                           placeholder="Broj telefona"
                           autoComplete="brojTelefona"
-                          type='number'
+                          type='text'
                           // onChange={(e) => (parseInt(e.target.value))}
                           />
                         : 
@@ -318,7 +318,7 @@ export const NoviNalog2 = ({klijenti} ) => {
                           aria-invalid={fieldState.invalid}
                           placeholder="Broj telefona"
                           autoComplete="brojTelefona"
-                          type='number'
+                          type='text'
                           //defaultValue={findBrojTelefona?.telefon || 1}
                           //value={findBrojTelefona?.telefon || 1}
                           // onChange={(e) => {

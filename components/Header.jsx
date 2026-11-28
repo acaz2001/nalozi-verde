@@ -3,7 +3,8 @@ import React from 'react'
 import { useState } from 'react'
 import Link from 'next/link'
 import { Button } from './ui/button'
-import moment from 'moment/dist/moment';
+import moment from 'moment'
+import 'moment/locale/sr';
 import { usePathname } from 'next/navigation'
 
 
@@ -58,7 +59,7 @@ function Header() {
                 {stranice.map((stranica)=> (
                     
                         <Link key={stranica.label} id={stranica.label} href={stranica.href} className=''>
-                            <Button className={`md:text-base text-sm cursor-pointer p-6 h-13 bg-transparent hover:bg-[#ddd7fd] hover:text-black rounded-4xl ${pathname.startsWith(stranica.value)  ? 'bg-white text-black transition-all duration-300' : ''}`}>
+                            <Button className={`md:text-base text-xs cursor-pointer p-6 h-13 bg-transparent hover:bg-[#ddd7fd] hover:text-black rounded-4xl ${pathname.startsWith(stranica.value)  ? 'bg-white text-black transition-all duration-300' : ''}`}>
                                 {stranica.label}
                             </Button>
                         </Link>
@@ -88,5 +89,7 @@ function Header() {
     </div>
   )
 }
+
+
 
 export default Header

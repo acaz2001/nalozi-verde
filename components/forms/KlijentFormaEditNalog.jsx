@@ -147,7 +147,7 @@ const onSubmit = async (data) => {
                                 placeholder="Unesi broj telefona"
                                 autoComplete="telefon"
                                 required
-                                type="number"
+                                type="text"
                                 />
                                 <FieldDescription>
                                 
