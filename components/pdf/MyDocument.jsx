@@ -117,9 +117,9 @@ return (
         </View>
         {/*END Otpremnica za: */}
 
-        <PdfTable proizvod={nalog.proizvod}/>
+        <PdfTable proizvod={nalog.proizvod} ukupnaCena={nalog.ukupnaCena}/>
 
-        <Text style={styles.paragraph}>
+        {/* <Text style={styles.paragraph}>
           Everything on this page is a component. View lays things out with
           flexbox, Text renders the copy, and StyleSheet keeps styling close to
           the CSS you already write.
@@ -127,7 +127,7 @@ return (
         <Text style={styles.paragraph}>
           Edit any value above and the page redraws. No template language, no
           build step, just React.
-        </Text>
+        </Text> */}
       </Page>
     </Document>
 )

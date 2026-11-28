@@ -55,7 +55,7 @@ const tw = createTw({
   },
 });
 
-function PdfTable({proizvod}) {
+function PdfTable({proizvod, ukupnaCena}) {
   return (
     <View>
         <PdfTableHeader />
@@ -64,7 +64,7 @@ function PdfTable({proizvod}) {
             <PdfTableRow key={p._id} podaci={p}/>
             )
         })}
-        <PdfTableRezime />
+        <PdfTableRezime ukupnaCena={ukupnaCena}/>
     </View>
   )
 }
@@ -102,11 +102,17 @@ function PdfTableHeader() {
 }
 
 function PdfTableRow({podaci}) {
+    const kvadratura = (podaci.sirinaProizvoda/100) * (podaci.duzinaProizvoda/100);
+    const cenaProizvoda = (podaci.cena / kvadratura)
+    const cena = cenaProizvoda.toFixed(2)
+
+    console.log("PDF TABLE", kvadratura.toFixed(2));
+    
     return (
         <View style={styles.tableRow}>
             <View style={{borderRightWidth: 1, borderColor: 'black', width: 192, height: 40, justifySelf: 'center', alignSelf: 'center', paddingTop: 6}}>
                 <Text>
-                    Usluga demontaza
+                    {podaci.imeProizvoda}
                 </Text>
             </View>
             <View style={{width: 25 ,height: 40, borderRightWidth: 1, borderColor: 'black'}}>
@@ -116,12 +122,13 @@ function PdfTableRow({podaci}) {
             </View>
             <View style={{width: 50, height: 40, borderRightWidth: 1, borderColor: 'black'}}> 
                 <Text>
-                    {(podaci.sirinaProizvoda/100) * (podaci.duzinaProizvoda/100)}
+                    {kvadratura.toFixed(2)}
                 </Text>
             </View>
             <View style={{ width: 92, height: 40, borderRightWidth: 1, borderColor: 'black' }}>
+                {/* Jed cena */}
                 <Text>
-                    {(podaci.cena / ((podaci.sirinaProizvoda/100) * (podaci.duzinaProizvoda/100))).toFixed(2)}
+                    {cenaProizvoda.toFixed(1)}
                 </Text>
             </View>
             <View style={{ width: 80, height: 40}}>
@@ -133,14 +140,14 @@ function PdfTableRow({podaci}) {
     )
 }
 
-function PdfTableRezime() {
+function PdfTableRezime({ukupnaCena}) {
     return (
         <View style={styles.rezime}>
             <Text style={{fontWeight: '600', fontSize: 14}}>
                 Ukupno za naplatu:
             </Text>
             <Text style={{fontWeight: '600', fontSize: 14}}>
-                850000,00
+                {ukupnaCena}
             </Text>
         </View>
     )

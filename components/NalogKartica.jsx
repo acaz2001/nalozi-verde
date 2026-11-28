@@ -1,13 +1,8 @@
 'use client'
 import React from 'react'
 
-import { PlusIcon, Check, X, Pencil, ChevronDownIcon , Ban, CircleUserRound, ChevronsUpDown  , MirrorRectangular, PencilRuler, Images, BanknoteArrowUp  } from "lucide-react"
+import {  Check, X, Pencil, ChevronDownIcon , Ban, CircleUserRound  , MirrorRectangular, PencilRuler, Images, BanknoteArrowUp  } from "lucide-react"
 
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import {
   Item,
@@ -15,8 +10,6 @@ import {
   ItemContent,
   ItemDescription,
   ItemGroup,
-  ItemMedia,
-  ItemSeparator,
   ItemTitle,
 } from "@/components/ui/item"
 import {
@@ -111,7 +104,7 @@ function NalogKartica({nalozi}) {
 
             <Item className="md:w-full w-fit rounded-3xl relative mb-5 bg-transparent p-0">
              <main className={`md:gap-5 gap-2 flex md:flex-row flex-col flex-col-reverse w-full rounded-3xl relative md:mt-0 mt-3`}>
-              <ItemContent className={`md:p-5 md:p-0 gap-8 rounded-2xl ${nalozi.stanjeNaloga === 'nijeUradjen' ? 'bg-[#f0f0f06f]' : 'bg-green-200' }`}>
+              <ItemContent className={`md:p-5 mt-3 gap-8 rounded-2xl ${nalozi.stanjeNaloga === 'nijeUradjen' ? 'bg-[#f0f0f06f]' : 'bg-green-200' }`}>
                   {nalozi.proizvod?.map((p, index) => {
                     return (
                       <div key={p._id} className='mt-2 border md:border-black border-none rounded-xl md:p-5 p-2.5'>
@@ -332,7 +325,7 @@ function NalogKartica({nalozi}) {
                   })}
                     
                 
-                  <section className='flex flex-col items-start gap-2 mt-2'>
+                  <section className='flex flex-col items-start gap-2 mt-2 p-3'>
                     <div className='flex flex-row items-end gap-1.5'>
                       <ItemTitle className='text-lg'>
                         Ukupno za naplatu:
@@ -353,12 +346,12 @@ function NalogKartica({nalozi}) {
               </ItemContent>
 
 
-              <ItemActions className='bg-[#f6f1ff] rounded-2xl px-5 flex flex-row items-center justify-center'>
-                  <Tooltip>
-                    <TooltipTrigger asChild>
+              <ItemActions className='bg-[#f6f1ff] rounded-2xl md:mt-3 px-5 flex md:flex-col md:items-start md:justify-start gap-5 justify-center'>
+                  <Tooltip >
+                    <TooltipTrigger asChild className={'md:mt-6'}>
                       <Link href={`/nalozi/${nalozi._id}`} target="_blank">
                         <Button variant="ghost" size="icon" className="rounded-full cursor-pointer hover:bg-gray-300">
-                            <Pencil />
+                            <Pencil className=''/>
                         </Button>
                       </Link>
                     </TooltipTrigger>
