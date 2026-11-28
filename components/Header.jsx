@@ -3,14 +3,15 @@ import React from 'react'
 import { useState } from 'react'
 import Link from 'next/link'
 import { Button } from './ui/button'
-import moment from 'moment'
+import moment from 'moment/dist/moment';
 import { usePathname } from 'next/navigation'
 
 
+
 moment.locale('sr')
-const date = moment();
-const datum = date.format("MMMM DD YYYY")
-const mesec = date.format("MMMM")
+let date = moment();
+let datum = date.format("MMMM DD YYYY")
+let mesec = date.format("MMMM")
 
 
 console.log("DATES:" ,mesec);
@@ -28,8 +29,21 @@ function Header() {
     const [active, setActive] = useState()
     const pathname = usePathname()
     
+   
     
     
+    const pathnameMarker = function(pathname) {
+        if(pathname === '/') {
+            return '/'
+        }
+        else {
+            return pathname 
+        }
+        
+        
+    }
+
+     console.log('pathname', pathnameMarker(pathname));
 
   return (
     // top-295
@@ -44,7 +58,7 @@ function Header() {
                 {stranice.map((stranica)=> (
                     
                         <Link key={stranica.label} id={stranica.label} href={stranica.href} className=''>
-                            <Button className={`cursor-pointer p-6 h-13 bg-transparent hover:bg-[#ddd7fd] hover:text-black rounded-4xl ${pathname == stranica.value ? 'bg-white text-black transition-all duration-300' : ''}`}>
+                            <Button className={`md:text-base text-sm cursor-pointer p-6 h-13 bg-transparent hover:bg-[#ddd7fd] hover:text-black rounded-4xl ${pathname.startsWith(stranica.value)  ? 'bg-white text-black transition-all duration-300' : ''}`}>
                                 {stranica.label}
                             </Button>
                         </Link>

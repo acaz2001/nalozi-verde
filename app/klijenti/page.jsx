@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import {Naslov, OpisTeksta} from '../../components/typography/Kontent'
 import { fetchKlijenti } from '../../actions/action'
 import KlijentContainer from '../../components/klijenti/KlijentContainer';
 import Link from 'next/link';
 import {Button} from '../../components/ui/button'
 import Search from '../../components/Search'
+import SkeletonCard from '../../components/skeleton/SkeletonCard'
 
 async function getKlijenti() {
   const res = await fetchKlijenti();
@@ -26,7 +27,6 @@ async function KlijentiPage(props) {
               <Naslov className=''>
                 Klijenti:
               </Naslov>
-              <p>ovo jeL:{process.env.NEXT_PUBLIC_DOMAIN}</p>
               <OpisTeksta className={'mt-2'}> 
                 Ovde možete videti sve vaše klijente i podešavati njihove podatke.
               </OpisTeksta>
@@ -49,7 +49,9 @@ async function KlijentiPage(props) {
               <Search placeholder='Pretraži klijenta' className='w-full'/>
           </div> 
         </div>
-        <KlijentContainer klijenti={klijenti} query={query}/>
+        <Suspense fallback={<SkeletonCard/>}>
+          <KlijentContainer klijenti={klijenti} query={query}/>
+        </Suspense>
       </div>     
     </div>
   )

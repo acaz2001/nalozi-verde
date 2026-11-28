@@ -16,8 +16,8 @@ async function TusKabineNaloziIdPage({params}) {
   const { id } = await params;
   //const res = await fetch(`http://localhost:3000/api/nalozi/${id}`, {method:"GET"});
   //const nalog = res.json();
-  const filePath = path.join(process.cwd(), "data", "tusKabineNalozi.json");
-  const fileData = await fs.readFile(filePath, "utf8");
+  // const filePath = path.join(process.cwd(), "data", "tusKabineNalozi.json");
+  // const fileData = await fs.readFile(filePath, "utf8");
   // const nalozi = JSON.parse(fileData);
 
   //console.log ("NALOZI JE: ", nalozi.findIndex((obj) => obj.id == id))

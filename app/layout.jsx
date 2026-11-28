@@ -4,6 +4,9 @@ import { cn } from "@/lib/utils";
 import Header from "../components/Header"
 import { Toaster } from "sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import moment from "moment";
+
+moment.locale('sr')
 
 const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 

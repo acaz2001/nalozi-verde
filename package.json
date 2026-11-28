@@ -20,6 +20,7 @@
     "date-fns": "^4.4.0",
     "lucide-react": "^1.80.0",
     "moment": "^2.31.0",
+    "moment-timezone": "^0.6.6",
     "mongodb": "^7.9.1",
     "mongoose": "^9.13.1",
     "next": "^15.5.7",
