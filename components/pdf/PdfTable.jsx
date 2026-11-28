@@ -55,15 +55,15 @@ const tw = createTw({
   },
 });
 
-function PdfTable() {
+function PdfTable({proizvod}) {
   return (
     <View>
         <PdfTableHeader />
-        <PdfTableRow />
-        <PdfTableRow />
-        <PdfTableRow />
-        <PdfTableRow />
-        <PdfTableRow />
+        {proizvod.map((p) => {
+            return (
+            <PdfTableRow key={p._id} podaci={p}/>
+            )
+        })}
         <PdfTableRezime />
     </View>
   )
@@ -82,7 +82,7 @@ function PdfTableHeader() {
                     jm
                 </Text>
             </View>
-            <View style={{width: 50, borderRightWidth: 1, borderColor: 'black'}}> 
+            <View style={{width: 50, borderRightWidth: 1, borderColor: 'black'}} > 
                 <Text>
                     Kolicina
                 </Text>
@@ -101,7 +101,7 @@ function PdfTableHeader() {
     )
 }
 
-function PdfTableRow() {
+function PdfTableRow({podaci}) {
     return (
         <View style={styles.tableRow}>
             <View style={{borderRightWidth: 1, borderColor: 'black', width: 192, height: 40, justifySelf: 'center', alignSelf: 'center', paddingTop: 6}}>
@@ -116,17 +116,17 @@ function PdfTableRow() {
             </View>
             <View style={{width: 50, height: 40, borderRightWidth: 1, borderColor: 'black'}}> 
                 <Text>
-                    20
+                    {(podaci.sirinaProizvoda/100) * (podaci.duzinaProizvoda/100)}
                 </Text>
             </View>
             <View style={{ width: 92, height: 40, borderRightWidth: 1, borderColor: 'black' }}>
                 <Text>
-                    111450,00
+                    {(podaci.cena / ((podaci.sirinaProizvoda/100) * (podaci.duzinaProizvoda/100))).toFixed(2)}
                 </Text>
             </View>
             <View style={{ width: 80, height: 40}}>
                 <Text>
-                    29000,00
+                    {podaci.cena}
                 </Text>
             </View>
         </View>

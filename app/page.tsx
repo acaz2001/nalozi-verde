@@ -11,15 +11,16 @@ const test = {
     {
       imeProizvoda: 'Flot 4mm',
       obradaProizvoda: 'Kp obrada',
-      sirinaProizvoda: 100,
-      duzinaProizvoda: 100,
+      sirinaProizvoda: 200,
+      duzinaProizvoda: 200,
       uslugaProizvoda: 'Montaza u radnji',
       brojKomadaProizvoda: 3,
-      cena: 15000  
-  },
+      cena: 15000,
+      _id: 15456415  
+    },
   ],
   ukupnaCena: 15000,
-  nalogId: 'p65j465jk456'
+  _id: 'p65j465jk456'
 
 }
 
@@ -29,7 +30,7 @@ export default function Home() {
     <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       <main className="flex flex-1 w-full max-w-[1650px] flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
         <PDFViewer width={900} height={900}>
-          <MyDocument nalog={{test}}/>
+          <MyDocument nalog={test}/>
         </PDFViewer>
         <section>
           <Naslov className={''}>Nalozi Ovaj Mesec</Naslov>

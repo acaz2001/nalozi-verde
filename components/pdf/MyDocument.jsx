@@ -69,7 +69,7 @@ return (
       <Page size="A4" style={styles.page}>
         <View style={styles.header}>
           <Text>Otpremnica</Text>
-          <Text>{nalog.nalogId}</Text>
+          <Text>{nalog._id}</Text>
         </View>
 
         <View style={styles.podaciOfirmi}>
@@ -117,7 +117,7 @@ return (
         </View>
         {/*END Otpremnica za: */}
 
-        <PdfTable />
+        <PdfTable proizvod={nalog.proizvod}/>
 
         <Text style={styles.paragraph}>
           Everything on this page is a component. View lays things out with
